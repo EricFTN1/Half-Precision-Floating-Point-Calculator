@@ -27,17 +27,7 @@ Output Device: LCD Display
 
 ## System Architecture
 
-### Block Diagram
 
-![Top Level Block Diagram](images/Block_diagram.png)
-
-This block diagram shows the relationship between the input controls, arithmetic unit, floating-point processing modules, and output display system.
-
-### Arithmetic Unit
-
-![Arithmetic Unit](images/Data_flow.png)
-
-The arithmetic unit is responsible for processing floating-point operations and routing the results to the display subsystem.
 
 ## Hardware Components
 
@@ -57,53 +47,33 @@ The arithmetic unit is responsible for processing floating-point operations and 
 
 ## System Architecture
 
-```text
-          +----------------+
-          |  Hex Keypad    |
-          +----------------+
-                   |
-                   v
-          +----------------+
-          | Input Decoder  |
-          +----------------+
-                   |
-                   v
-      +-------------------------+
-      | Floating Point Unit     |
-      |                         |
-      |  Exponent Subtractor    |
-      |  Mantissa Shifter       |
-      |  CLA Adder/Subtractor   |
-      +-------------------------+
-                   |
-                   v
-          +----------------+
-          | LCD Interface  |
-          +----------------+
-                   |
-                   v
-          +----------------+
-          |  LCD Display   |
-          +----------------+
-```
+### Top Level Block Diagram
 
----
+![Top Level Block Diagram](images/Block_diagram.png) ![Inside Top level](images/Data_flow.png)
 
-## Floating Point Arithmetic Unit
+- This block diagram shows the relationship between the input controls, arithmetic unit, floating-point processing modules, and output display system.
 
-The arithmetic unit is responsible for performing operations on half-precision floating point numbers.
+### Hex
+![Hex Keypad](images/Hex_to_7_segment_display.png)
+
+### Floating Point Arithmetic Unit
+
+- The arithmetic unit is responsible for performing operations on half-precision floating point numbers.
 
 ### Exponent Subtractor
 
-The exponent subtractor compares the exponents of two operands and determines their difference. This value is used to properly align mantissas before arithmetic operations are performed.
+![Exponent Subtractor](images/Modular_exponent_subtractor.png) 
+- The exponent subtractor compares the exponents of two operands and determines their difference. This value is used to properly align mantissas before arithmetic operations are performed.
 
 ### Mantissa Shifter
 
-The mantissa shifter aligns the smaller operand by shifting its mantissa based on the exponent difference. Mantissa alignment is required before floating point addition or subtraction can occur.
+![Logical Shifter](images/Logical_shifter.png)
+- The mantissa shifter aligns the smaller operand by shifting its mantissa based on the exponent difference. Mantissa alignment is required before floating point addition or subtraction can occur.
 
 ### Carry Look-Ahead Adder/Subtractor
 
-A carry look-ahead adder/subtractor performs arithmetic operations on aligned mantissas. The CLA architecture provides significantly faster carry propagation compared to ripple-carry designs.
+![Adder Subtractor](images/Adder_Subtractor.png)
+- A carry look-ahead adder/subtractor performs arithmetic operations on aligned mantissas. The CLA architecture provides significantly faster carry propagation compared to ripple-carry designs.
 
 ---
 
