@@ -14,6 +14,29 @@ Unlike traditional calculators that display values in decimal form, this calcula
 
 This approach allows users to directly observe how data is represented at the hardware level and better understand binary arithmetic and digital system design.
 
+- 🎥 [Demo Video](https://youtu.be/bcENlHCT4Ro)
+
+## System Architecture
+
+### Block Diagram
+
+![Top Level Block Diagram](images/Block_diagram.png)
+
+This block diagram shows the relationship between the input controls, arithmetic unit, floating-point processing modules, and output display system.
+
+### Arithmetic Unit
+
+![Arithmetic Unit](images/Data_flow.png)
+
+The arithmetic unit is responsible for processing floating-point operations and routing the results to the display subsystem.
+
+## Hardware Components
+
+### Hex keypad and LCD board
+
+![FPGA Board](images/Hex_keypad.png)
+![FPGA Board](images/LCD_board.png)
+
 ## Features
 
 - FPGA implementation using Verilog
