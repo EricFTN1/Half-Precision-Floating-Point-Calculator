@@ -1,4 +1,4 @@
-module FloatingPointerCalculator
+module FloatingPointer_Calc
 (
 	input [15:0] Ainput,Binput, 
 	output [15:0] Result
