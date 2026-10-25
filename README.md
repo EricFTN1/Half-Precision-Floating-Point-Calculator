@@ -49,15 +49,15 @@ Output Device: LCD Display
 
 ### Top Level Block Diagram
 
-![Top Level Block Diagram](images/Block_diagram.png) ![Inside Top level](images/Data_flow.png)
-
+![Top Level Block Diagram](images/Block_diagram.png) 
+![Inside Top level](images/Top_Level.png)
 - This block diagram shows the relationship between the input controls, arithmetic unit, floating-point processing modules, and output display system.
 
 ### Hex
 ![Hex Keypad](images/Hex_to_7_segment_display.png)
 
 ### Floating Point Arithmetic Unit
-
+![Floating_point](images/Data_flow.png)
 - The arithmetic unit is responsible for performing operations on half-precision floating point numbers.
 
 ### Exponent Subtractor
