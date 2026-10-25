@@ -10,7 +10,7 @@ module TEST_LCD
 	logic [4:0] ModularExponentSubtractorOut, ExponentINCMuxOut;
 	logic [10:0] GLCAOut;
 	
-keypad_input
+keypad_input keypad_inst
 (
 	.A(Ainput[9:0]) ,						// input [9:0] A_sig
 	.B(Binput[9:0]) ,						// input [9:0] B_sig
@@ -18,7 +18,7 @@ keypad_input
 	.C(MantissaShifterMuxOut) 		// output [9:0] C_sig
 );
 
-MantissaAdderMux MantissaAdderMux_inst
+NBitRegister_SV  NBitRegister_inst
 (
 	.A(Ainput[9:0]) ,					// input [9:0] A_sig
 	.B(Binput[9:0]) ,					// input [9:0] B_sig
@@ -26,7 +26,15 @@ MantissaAdderMux MantissaAdderMux_inst
 	.C(MantissaAdderMUXOut) 	// output [9:0] C_sig
 );
 
-SubtractorTopLevel SubtractorTopLevel_inst
+FLoatingPoint_Calc FLoatingPoint_Calc_inst
+(
+	.A(Ainput[14:10]) ,							// input [4:0] A_sig
+	.B(Binput[14:10]) ,							// input [4:0] B_sig
+	.solution(ModularExponentSubtractorOut) ,	// output [4:0] solution_sig
+	.Cout(Cout) 										// output  Cout_sig
+);
+
+LCD LCD_inst
 (
 	.A(Ainput[14:10]) ,							// input [4:0] A_sig
 	.B(Binput[14:10]) ,							// input [4:0] B_sig
